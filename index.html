@@ -92,7 +92,7 @@
     /* --- Paper Overlay (Text on Video) --- */
     .paper-overlay {
       position: absolute; z-index: 4;
-      /* Координаты под твою бумажку */
+   
       top: 36%; left: 13%; width: 74%; height: 40%;
       
       display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -179,26 +179,26 @@
 
     @media (max-width: 768px) {
   .stage {
-    aspect-ratio: 4 / 3; /* Более квадратный формат на планшетах */
+    aspect-ratio: 4 / 3; 
     margin: 0 auto 1.5rem;
     border-radius: 16px;
   }
   
   .media {
-    object-fit: cover; /* Заполняет всё пространство без пустот */
+    object-fit: cover; 
   }
   
-  /* Адаптация текста на бумажке */
+
   .paper-overlay {
-    top: 30%; /* Чуть выше на мобильных */
+    top: 30%; 
     left: 10%;
-    width: 80%; /* Шире */
-    height: 45%; /* Выше */
+    width: 80%; 
+    height: 45%; 
     padding: 8px;
   }
   
   .fortune {
-    font-size: clamp(0.75rem, 4vw, 0.95rem); /* Меньше шрифт */
+    font-size: clamp(0.75rem, 4vw, 0.95rem); 
     line-height: 1.2;
   }
   
@@ -216,7 +216,7 @@
 
 @media (max-width: 480px) {
   .stage {
-    aspect-ratio: 1 / 1; /* Квадрат на маленьких экранах */
+    aspect-ratio: 1 / 1; 
     border-radius: 12px;
   }
   
@@ -245,7 +245,7 @@
     font-size: clamp(0.5rem, 3.2vw, 0.65rem);
   }
   
-  /* Адаптация заголовка и кнопок */
+
   h1 {
     font-size: 1.5rem;
   }
@@ -286,6 +286,87 @@
   }
 }
 
+
+body {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 10px; 
+}
+
+/* Для планшетов */
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+  .container {
+    padding-top: 8px;
+  }
+  h1 {
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    margin-bottom: 24px; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+  .container {
+    padding-top: 0;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    padding: 0 8px;
+  }
+  .stage {
+    margin: 0 auto 20px; 
+  }
+}
+
+
+@media (max-width: 360px) {
+  body {
+    padding: 10px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    padding: 32px 24px;
+  }
+  .container {
+    padding-top: 20px;
+  }
+  h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+}
+
 @media (max-width: 480px) {
   .btn.secondary {
     white-space: nowrap;
@@ -308,7 +389,7 @@
     <p class="subtitle">Tap the cookie to reveal your wisdom for the day</p>
 
     <div id="stage" class="stage">
-      <!-- Твои файлы видео и картинки -->
+      
       <img id="static-img" class="media static-img" src="cookie-static.png" alt="Cookie">
       <video id="anim-video" class="media anim-video" playsinline preload="auto">
         <source src="cookie-animation.mp4" type="video/mp4">
@@ -332,7 +413,7 @@
   </div>
 
   <script>
-    // Финальный список из 17 пунктов
+    
     const fortunes = [
       {"fortune":"The answer is hiding exactly where you haven't looked yet.","insight":"Overthinking kills momentum. Ship v1 and iterate. Motion creates clarity.","colleague_note":"Edgar ships prototypes before lunch. Hire him before he builds your competitor's product. 😉"},
       {"fortune":"Perfection is a moving target that rarely gets hit.","insight":"'Done' beats 'Perfect' every time. Release early, polish later.","colleague_note":"Edgar cut time-to-market by 30% by knowing when to stop polishing. Your team needs that discipline. 🚀"},
@@ -404,7 +485,7 @@
       }, 600);
     }
 
-    // Клик по видео или кнопке запускает процесс
+
     stage.addEventListener('click', (e) => {
       if (e.target.closest('.btn')) return;
       openCookie();
