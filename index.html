@@ -285,6 +285,21 @@
     font-size: clamp(0.5rem, 3.5vw, 0.6rem);
   }
 }
+
+@media (max-width: 480px) {
+  .btn.secondary {
+    white-space: nowrap;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .btn.secondary {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -307,7 +322,7 @@
 
     <div class="btn-container">
       <button id="crack-btn" class="btn">Crack it open</button>
-      <button id="reset-btn" class="btn secondary">↺ Try another one</button>
+      <button id="reset-btn" class="btn secondary">↺ Try again</button>
     </div>
 
     <footer>
