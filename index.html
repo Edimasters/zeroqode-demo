@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥠</text></svg>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Fortune Cookie</title>
   
-  <!-- Шрифты: Inter для UI, Special Elite для "бумажки" -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
@@ -70,11 +69,11 @@
       overflow: hidden; 
       border-radius: 20px; 
       background: var(--surface);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft shadow for light theme */
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       border: 1px solid var(--border);
-    }
+}
     
     .stage:hover { 
       transform: translateY(-4px); 
@@ -177,6 +176,115 @@
     footer a:hover { text-decoration: underline; }
 
     @media (max-width: 480px) { .stage { aspect-ratio: 4/3; } }
+
+    @media (max-width: 768px) {
+  .stage {
+    aspect-ratio: 4 / 3; /* Более квадратный формат на планшетах */
+    margin: 0 auto 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .media {
+    object-fit: cover; /* Заполняет всё пространство без пустот */
+  }
+  
+  /* Адаптация текста на бумажке */
+  .paper-overlay {
+    top: 30%; /* Чуть выше на мобильных */
+    left: 10%;
+    width: 80%; /* Шире */
+    height: 45%; /* Выше */
+    padding: 8px;
+  }
+  
+  .fortune {
+    font-size: clamp(0.75rem, 4vw, 0.95rem); /* Меньше шрифт */
+    line-height: 1.2;
+  }
+  
+  .insight {
+    font-size: clamp(0.65rem, 3.5vw, 0.8rem);
+    margin-top: 4px;
+  }
+  
+  .note {
+    font-size: clamp(0.55rem, 3vw, 0.7rem);
+    padding-top: 4px;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stage {
+    aspect-ratio: 1 / 1; /* Квадрат на маленьких экранах */
+    border-radius: 12px;
+  }
+  
+  .media {
+    object-fit: cover;
+  }
+  
+  .paper-overlay {
+    top: 25%;
+    left: 8%;
+    width: 84%;
+    height: 50%;
+    padding: 6px;
+  }
+  
+  .fortune {
+    font-size: clamp(0.7rem, 4.5vw, 0.9rem);
+    line-height: 1.15;
+  }
+  
+  .insight {
+    font-size: clamp(0.6rem, 3.8vw, 0.75rem);
+  }
+  
+  .note {
+    font-size: clamp(0.5rem, 3.2vw, 0.65rem);
+  }
+  
+  /* Адаптация заголовка и кнопок */
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .stage {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .paper-overlay {
+    top: 22%;
+    left: 6%;
+    width: 88%;
+    height: 52%;
+  }
+  
+  .fortune {
+    font-size: clamp(0.65rem, 5vw, 0.85rem);
+  }
+  
+  .insight {
+    font-size: clamp(0.55rem, 4vw, 0.7rem);
+  }
+  
+  .note {
+    font-size: clamp(0.5rem, 3.5vw, 0.6rem);
+  }
+}
   </style>
 </head>
 <body>
